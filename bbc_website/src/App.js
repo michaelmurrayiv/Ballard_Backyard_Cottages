@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
@@ -9,9 +10,7 @@ function App() {
         <p>
           The DADU Doctor
         </p>
-        <form>
-          
-        </form>
+        <SearchBar />
       </main>
     </div>
   );

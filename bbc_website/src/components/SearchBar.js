@@ -7,6 +7,26 @@ function SearchBar() {
     setQuery(e.target.value);
   };
 
+  const handleClick = async () => {
+    console.log("here");
+    try {
+      const response = await fetch("http://127.0.0.1:5000/run-script", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("here2");
+
+      const data = await response.json();
+      console.log("here3");
+      console.log("Script Output:", data.output);
+      console.error("Script Error:", data.error);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   const handleSearch = () => {
     if (query.trim() === "") {
       alert("Please enter a search term.");
@@ -31,7 +51,7 @@ function SearchBar() {
         value={query}
         onChange={handleChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleClick}>Search</button>
     </div>
   );
 }

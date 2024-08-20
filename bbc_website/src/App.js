@@ -5,11 +5,8 @@ import SearchBar from './components/SearchBar';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header className="Header"/>
       <main>
-        <p>
-          The DADU Doctor
-        </p>
         <SearchBar />
       </main>
     </div>

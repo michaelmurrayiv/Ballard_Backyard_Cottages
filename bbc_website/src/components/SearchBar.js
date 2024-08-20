@@ -8,13 +8,13 @@ function SearchBar() {
   };
 
   const handleClick = async () => {
-    console.log("here");
     try {
       const response = await fetch("http://127.0.0.1:5000/run-script", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({address: query})
       });
       console.log("here2");
 
@@ -44,7 +44,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="search-bar">
+    <div className="search">
       <input
         type="text"
         placeholder="Search..."

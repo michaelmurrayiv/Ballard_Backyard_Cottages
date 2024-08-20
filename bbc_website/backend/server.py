@@ -1,3 +1,6 @@
+# source venv/bin/activate
+# python3 server.py
+
 from flask import Flask, request, jsonify
 import subprocess
 from flask_cors import CORS
@@ -7,9 +10,9 @@ CORS(app)
 
 @app.route('/run-script', methods=['POST'])
 def run_script():
-    print("here?")
+    address = request.json.get("address")
     try:
-        result = subprocess.run(['python3', 'address_search.py', '4142 2nd Ave NW'], capture_output=True, text=True)
+        result = subprocess.run(['python3', 'address_search.py', address], capture_output=False, text=True)
         print("Script executed")
         return jsonify({'output': result.stdout, 'error': result.stderr}), 200
     except Exception as e:

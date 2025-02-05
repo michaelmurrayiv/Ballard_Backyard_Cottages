@@ -11,7 +11,6 @@ interface ResponseData {
 
 function App() {
   const [input, setInput] = useState<string>("");
-  const [output, setOutput] = useState<string>("");
 
   // Handle the search button click
   const handleSearch = async () => {
@@ -22,19 +21,16 @@ function App() {
     });
 
     if (response.ok) {
-      const data: ResponseData = await response.json();
-      setOutput(data.output);
+      console.log("Success:", response.statusText);
     } else {
-      setOutput("Error running script");
-    }
+      console.error("Error:", response.statusText);}
   };
 
   return (
     <div className="App">
       <Header className="Header" />
       <main>
-        <SearchBar setInput={setInput} handleSearch={handleSearch} />
-        <p>Output: {output}</p>
+        <SearchBar />
       </main>
     </div>
   );

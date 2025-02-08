@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const url = "http://127.0.0.1:5000";
+
 function SearchBar() {
   const [query, setQuery] = useState<string>("");
 
@@ -10,7 +12,7 @@ function SearchBar() {
 
   const handleClick = async (): Promise<void> => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/run-script", {
+      const response = await fetch(`${url}/run-script`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

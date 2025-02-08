@@ -2,8 +2,8 @@
 # source venv/bin/activate
 # python3 server.py
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify # type: ignore
+from flask_cors import CORS # type: ignore
 import subprocess
 import os
 
@@ -24,5 +24,4 @@ def run_script():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0")
